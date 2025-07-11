@@ -2,7 +2,7 @@
   "name": "johnsteer-site",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo 'Static site - no build needed'",
+    "build": "mkdir -p dist && cp *.html *.css *.js dist/",
     "start": "python3 -m http.server 8000"
   }
 }
