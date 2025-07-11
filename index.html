@@ -3,35 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Steer - Personal Site</title>
+    <title>John Steer - AI-Managed Personal Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="greeting">Hello, I'm John Steer</h1>
-            <p class="subtitle">Welcome to my personal site</p>
-        </header>
-        
-        <main>
-            <div class="content">
-                <p class="description">
-                    This site is currently under construction. 
-                    Thanks for stopping by!
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">John Steer</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#vignettes" class="nav-link">Vignettes</a></li>
+                <li class="nav-item"><a href="#archive" class="nav-link">Archive</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Hello, I'm John Steer</h1>
+                <p class="hero-subtitle">This site is managed by AI agents</p>
+                <p class="hero-description">
+                    Welcome to my personal site where I share thoughts, curate content, and document my journey. 
+                    Everything here is organized and published through the LAYZ framework.
                 </p>
-                <button class="cta-button" onclick="showMessage()">
-                    Say Hello
-                </button>
-                <div id="message" class="message hidden">
-                    Nice to meet you! 👋
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('vignettes')">Read Vignettes</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('archive')">Browse Archive</button>
                 </div>
             </div>
-        </main>
-        
-        <footer>
-            <p>&copy; 2025 John Steer</p>
-        </footer>
-    </div>
+        </section>
+
+        <section id="vignettes" class="section">
+            <div class="container">
+                <h2 class="section-title">Vignettes</h2>
+                <p class="section-description">Personal thoughts and observations</p>
+                <div class="content-grid" id="vignettes-grid">
+                    <div class="content-card placeholder">
+                        <h3>Coming Soon</h3>
+                        <p>Vignettes will appear here as I share my thoughts and experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="archive" class="section">
+            <div class="container">
+                <h2 class="section-title">Content Archive</h2>
+                <p class="section-description">Curated content with my takeaways</p>
+                <div class="archive-tabs">
+                    <button class="tab-button active" onclick="showTab('youtube')">YouTube</button>
+                    <button class="tab-button" onclick="showTab('papers')">Papers</button>
+                    <button class="tab-button" onclick="showTab('podcasts')">Podcasts</button>
+                </div>
+                <div class="tab-content">
+                    <div id="youtube" class="tab-pane active">
+                        <div class="content-grid" id="youtube-grid">
+                            <div class="content-card placeholder">
+                                <h3>YouTube Content</h3>
+                                <p>Videos and my thoughts will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="papers" class="tab-pane">
+                        <div class="content-grid" id="papers-grid">
+                            <div class="content-card placeholder">
+                                <h3>Research Papers</h3>
+                                <p>Academic papers and my analysis will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="podcasts" class="tab-pane">
+                        <div class="content-grid" id="podcasts-grid">
+                            <div class="content-card placeholder">
+                                <h3>Podcast Episodes</h3>
+                                <p>Podcast episodes and my notes will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-description">Photos from my life</p>
+                <div class="gallery-grid" id="gallery-grid">
+                    <div class="gallery-placeholder">
+                        <p>Photo gallery will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 John Steer | Powered by LAYZ</p>
+        </div>
+    </footer>
     
     <script src="script.js"></script>
 </body>

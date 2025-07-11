@@ -1,0 +1,59 @@
+name: LAYZ Content Processing
+
+on:
+  workflow_dispatch:
+    inputs:
+      content_type:
+        description: 'Type of content to process'
+        required: true
+        type: choice
+        options:
+          - vignette
+          - youtube
+          - paper
+          - podcast
+          - gallery
+      content_data:
+        description: 'Content data (JSON format)'
+        required: true
+        type: string
+
+jobs:
+  process_content:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Process content with LAYZ
+      env:
+        CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CONTENT_TYPE: ${{ github.event.inputs.content_type }}
+        CONTENT_DATA: ${{ github.event.inputs.content_data }}
+      run: |
+        # This will be replaced with actual LAYZ processing
+        echo "Processing $CONTENT_TYPE content..."
+        echo "Content data: $CONTENT_DATA"
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git diff --staged --quiet || git commit -m "feat: Add new ${{ github.event.inputs.content_type }} content via LAYZ"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main

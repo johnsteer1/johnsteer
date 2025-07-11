@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "site": {
+    "name": "John Steer",
+    "description": "Personal site managed by AI agents",
+    "url": "https://johnsteer.me",
+    "author": "John Steer",
+    "email": "steer.xyz@gmail.com"
+  },
+  "content": {
+    "types": {
+      "vignette": {
+        "directory": "content/vignettes",
+        "template": "vignette.md",
+        "url_pattern": "/vignettes/{slug}",
+        "default_categories": ["personal"],
+        "auto_tags": true
+      },
+      "youtube": {
+        "directory": "content/archive/youtube",
+        "template": "youtube.md",
+        "url_pattern": "/archive/youtube/{slug}",
+        "default_categories": ["archive", "video"],
+        "auto_metadata": true
+      },
+      "paper": {
+        "directory": "content/archive/papers",
+        "template": "paper.md",
+        "url_pattern": "/archive/papers/{slug}",
+        "default_categories": ["archive", "research"],
+        "auto_metadata": true
+      },
+      "podcast": {
+        "directory": "content/archive/podcasts",
+        "template": "podcast.md",
+        "url_pattern": "/archive/podcasts/{slug}",
+        "default_categories": ["archive", "audio"],
+        "auto_metadata": true
+      },
+      "gallery": {
+        "directory": "content/gallery",
+        "template": "gallery.md",
+        "url_pattern": "/gallery/{slug}",
+        "default_categories": ["photos"],
+        "auto_captions": true
+      }
+    }
+  },
+  "processing": {
+    "auto_commit": true,
+    "auto_deploy": true,
+    "review_required": false,
+    "backup_before_changes": true
+  },
+  "ai": {
+    "model": "claude-3-sonnet",
+    "context_files": [
+      "CLAUDE.md",
+      ".layz/templates/",
+      "content/*/index.md"
+    ],
+    "style_guide": "CLAUDE.md",
+    "max_tokens": 4000,
+    "temperature": 0.7
+  },
+  "deployment": {
+    "platform": "cloudflare-pages",
+    "repository": "steer-xyz/johnsteer",
+    "branch": "main",
+    "build_command": "npm run build",
+    "output_directory": "dist"
+  },
+  "integrations": {
+    "github": {
+      "repository": "steer-xyz/johnsteer",
+      "auto_pr": false,
+      "commit_message_template": "feat: {content_type} - {title}"
+    },
+    "cloudflare": {
+      "pages_project": "johnsteer",
+      "auto_deploy": true
+    }
+  }
+}
