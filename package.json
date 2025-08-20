@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "mkdir -p dist && cp *.html *.css *.js dist/",
-    "start": "python3 -m http.server 8000"
+    "start": "python3 -m http.server 8000",
+    "dev": "live-server --port=8000 --open=/"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }

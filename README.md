@@ -1,2 +1,2 @@
 # johnsteer
-personal site managed by ai
+personal static website

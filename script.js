@@ -1,5 +1,25 @@
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Video background handling
+    const video = document.getElementById('pokemon-bg');
+    const videoBackground = document.querySelector('.video-background');
+    
+    if (video) {
+        video.addEventListener('loadeddata', function() {
+            console.log('Pokemon background video loaded successfully');
+        });
+        
+        video.addEventListener('error', function() {
+            console.log('Video failed to load, falling back to gradient');
+            videoBackground.style.background = 'linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%)';
+        });
+        
+        // Pause video on mobile to save battery
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            video.style.display = 'none';
+            videoBackground.style.background = 'linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%)';
+        }
+    }
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -115,50 +135,4 @@ function showTab(tabName) {
     }
 }
 
-// Dynamic content loading functions (for future LAYZ integration)
-function loadContent(contentType, containerId) {
-    // This will be replaced with actual API calls to load content
-    const container = document.getElementById(containerId);
-    
-    // Placeholder for now - will be replaced with actual content loading
-    if (container) {
-        container.innerHTML = '<div class="content-card placeholder"><h3>Loading...</h3><p>Content will be loaded here by LAYZ framework.</p></div>';
-    }
-}
-
-// Initialize content loading
-document.addEventListener('DOMContentLoaded', function() {
-    // These will be replaced with actual content loading calls
-    // loadContent('vignettes', 'vignettes-grid');
-    // loadContent('youtube', 'youtube-grid');
-    // loadContent('papers', 'papers-grid');
-    // loadContent('podcasts', 'podcasts-grid');
-    // loadContent('gallery', 'gallery-grid');
-});
-
-// LAYZ integration hooks (for future development)
-window.LAYZ = {
-    // Content management functions
-    addVignette: function(vignette) {
-        // Add vignette to the vignettes section
-        console.log('Adding vignette:', vignette);
-    },
-    
-    addArchiveItem: function(item) {
-        // Add item to appropriate archive section
-        console.log('Adding archive item:', item);
-    },
-    
-    addGalleryItem: function(item) {
-        // Add item to gallery
-        console.log('Adding gallery item:', item);
-    },
-    
-    // Utility functions
-    refresh: function() {
-        // Refresh all content sections
-        console.log('Refreshing content...');
-    }
-};
-
-console.log('LAYZ-ready site initialized');
+console.log('Static site initialized');

@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Steer - AI-Managed Personal Site</title>
+    <title>John Steer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="pokemon-bg">
+            <source src="assets/Pokemon Background.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            <div class="video-fallback"></div>
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">John Steer</a>
             <ul class="nav-menu">
@@ -29,10 +41,8 @@
             <div class="hero-content">
                 <img src="assets/images/avatar.jpg" alt="Avatar" class="hero-avatar">
                 <h1 class="hero-title">Hello, I'm John Steer</h1>
-                <p class="hero-subtitle">This site is managed by AI agents</p>
                 <p class="hero-description">
-                    Welcome to my personal site where I share thoughts, curate content, and document my journey. 
-                    Everything here is organized and published through the LAYZ framework.
+                    Welcome to my personal site where I share thoughts, curate content, and document my journey.
                 </p>
                 <div class="hero-buttons">
                     <button class="btn btn-primary" onclick="scrollToSection('vignettes')">Read Vignettes</button>
@@ -107,9 +117,10 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 John Steer | Powered by LAYZ</p>
+            <p>&copy; 2025 John Steer</p>
         </div>
     </footer>
+    </div> <!-- End content wrapper -->
     
     <script src="script.js"></script>
 </body>
