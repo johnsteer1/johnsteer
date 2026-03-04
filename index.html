@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Steer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>John Steer</h1>
-    <p>Coming soon...</p>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="desktop-bg">
+            <source src="assets/desktop.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="content-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="avatar-container">
+                <img src="assets/avatar.jpg" alt="John Steer" class="avatar">
+            </div>
+            <h1 class="hero-title">John Steer</h1>
+            <p class="hero-bio">
+                Welcome to my personal space on the web. I'm passionate about technology, 
+                creativity, and building meaningful digital experiences.
+            </p>
+        </section>
+
+        <!-- Placeholder Section -->
+        <section class="placeholder-section">
+            <h2 class="section-title">Coming Soon</h2>
+            <p class="section-description">
+                This space will soon be filled with exciting content, projects, and insights.
+            </p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
